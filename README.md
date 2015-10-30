@@ -1,5 +1,5 @@
 # Cards
-> Table extension with cards as cells
+> Table extension with cards as cells, developed for product top lists. Responsive design and selection enabled, both click and swipes.
 
 ## Purpose and Description
 
