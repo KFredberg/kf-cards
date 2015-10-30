@@ -4,6 +4,8 @@
 ## Purpose and Description
 
 ## Screenshots
+Compact and full view of Cards extensions
+![Alt text](https://github.com/KFredberg/kf-cards/blob/master/img/screenshot_compact_and_full.png?raw=true "Screenshot compact & full view")
 
 ## Installation
 
@@ -14,6 +16,7 @@
 	* See instructions [how to import an extension on Qlik Sense Server](http://help.qlik.com/sense/en-us/developer/#../Subsystems/Workbench/Content/BuildingExtensions/HowTos/deploy-extensions.htm)
 
 ## Configuration
+![Alt text](https://github.com/KFredberg/kf-cards/blob/master/img/screenshot_dimensions.png?raw=true "Screenshot compact & full view")
 
 1st dimension is the uniqie identifier that will be selected if a card is selected. The identifier won't show up on the card. 2nd dimension is the image and needs a url for source. 
 3rd dimension is the title of the card. 
