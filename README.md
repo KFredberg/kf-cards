@@ -5,7 +5,11 @@
 
 ## Screenshots
 Compact and full view of Cards extensions
+<<<<<<< HEAD
 ![Alt text](https://github.com/KFredberg/kf-cards/blob/master/img/screenshot_compact_and_full.png?raw=true "Screenshot compact & full view")
+=======
+![Alt text](https://github.com/KFredberg/kf-cards/blob/master/screenshot_compact_and_full.png?raw=true "Screenshot compact & full view")
+>>>>>>> 9ddb3a9b5165f55d72b0b889e62c467a890b397c
 
 ## Installation
 
