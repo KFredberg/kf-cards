@@ -4,6 +4,8 @@
 ## Purpose and Description
 
 ## Screenshots
+Compact and full view of Cards extensions
+![Alt text](/blob/master/screenshot_compact_and_full.png?raw=true "Screenshot compact & full view")
 
 ## Installation
 
