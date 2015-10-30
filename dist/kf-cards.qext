@@ -1,0 +1,9 @@
+{
+	"name" : "Cards",
+	"description" : "Table extension with cards as cells",
+	"icon" : "table",
+	"type" : "visualization",
+	"version": "0.0.1",
+	"preview" : "cards.png",
+	"author": "Karl Fredberg"
+}
