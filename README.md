@@ -20,8 +20,8 @@ Compact and full view of Cards extensions
 
 * 1st dimension is the uniqie identifier that will be selected if a card is selected. The identifier won't show up on the card. 
 * 2nd dimension is the image and needs a url for source. 
-** Example url string: 'http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_UX34_CR0,0,34,50_AL_.jpg'
-**Example reference an image from Qlik Sense default repository: '../content/Default/Qlik_default_flower.png'
+  * Example url string: 'http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_UX34_CR0,0,34,50_AL_.jpg'
+  * Example reference an image from Qlik Sense default repository: '../content/Default/Qlik_default_flower.png'
 * 3rd dimension is the title of the card. 
 * 4th dimension is optional and will show up under the titel. 
 
