@@ -68,7 +68,7 @@ function ($, /*_,*/ props, initProps, extensionUtils, cssContent) {
 
             html += "</div>";
             $element.html(html);
-            
+
             if(!this.$scope.$parent.$parent.editmode) {
                 if(morebutton) {
                     var requestPage = [{
@@ -84,66 +84,70 @@ function ($, /*_,*/ props, initProps, extensionUtils, cssContent) {
                     });
                 }
                 $element.find('.selectable').on('qv-activate', function() {
-                    console.log('qv-activate');
-                    if(this.hasAttribute("data-value")) {
-                        var value = parseInt(this.getAttribute("data-value"), 10), dim = parseInt(this.getAttribute("data-dimension"), 10);
-                        self.selectValues(dim, [value], true);
-                        $element.find("[data-dimension='"+ dim +"'][data-value='"+ value+"']").toggleClass("selected");
+                    if (!$element.parents('.qv-snapshot-enabled').length) {
+                        if(this.hasAttribute("data-value")) {
+                            var value = parseInt(this.getAttribute("data-value"), 10), dim = parseInt(this.getAttribute("data-dimension"), 10);
+                            self.selectValues(dim, [value], true);
+                            $element.find("[data-dimension='"+ dim +"'][data-value='"+ value+"']").toggleClass("selected");
+                        }
                     }
                 });
                 $element.find('.selectable').on("qv-swipestart", function(event) {
+                    if (!$element.parents('.qv-snapshot-enabled').length) {
                     
-                    var target = $(event.originalEvent.target);
-                    var idx = $(event.originalEvent.target.parentElement).index()
-                    
-                    layout.swipe_row_min = idx;
-                    layout.swipe_row_max = idx;
-                    
-                    var value = parseInt(target.attr('data-value'), 10);
-                    
-                    if (typeof value !== typeof undefined && value !== false && !isNaN(value) && !target.hasClass("selected")) {
-                        layout.values_to_select.push(value);
-                        $element.find("[data-dimension='0'][data-value='"+ value+"']").toggleClass("selected");
+                        var target = $(event.originalEvent.target);
+                        var idx = $(event.originalEvent.target.parentElement).index()
+                        
+                        layout.swipe_row_min = idx;
+                        layout.swipe_row_max = idx;
+                        
+                        var value = parseInt(target.attr('data-value'), 10);
+                        
+                        if (typeof value !== typeof undefined && value !== false && !isNaN(value) && !target.hasClass("selected")) {
+                            layout.values_to_select.push(value);
+                            $element.find("[data-dimension='0'][data-value='"+ value+"']").toggleClass("selected");
+                        }
                     }
                 });
                 
                 $element.find('.selectable').on("qv-swipeupdate", function(event) {
+                    if (!$element.parents('.qv-snapshot-enabled').length) {
+                        if ($(event.originalEvent.target.parentElement).hasClass("listitem")) {
+                            var target = $(event.originalEvent.target);
+                            var list = $(event.originalEvent.target.parentElement.parentElement.childNodes);
+                            var idx = $(event.originalEvent.target.parentElement).index()
+                            var updateSelection = layout.swipe_row_min > idx || layout.swipe_row_max < idx  ? true : false;
 
-                    if ($(event.originalEvent.target.parentElement).hasClass("listitem")) {
-                    
-                        var target = $(event.originalEvent.target);
-                        var list = $(event.originalEvent.target.parentElement.parentElement.childNodes);
-                        var idx = $(event.originalEvent.target.parentElement).index()
-                        var updateSelection = layout.swipe_row_min > idx || layout.swipe_row_max < idx  ? true : false;
+                           if (updateSelection) {
 
-                       if (updateSelection) {
+                                layout.swipe_row_min = layout.swipe_row_min > idx ? idx : layout.swipe_row_min;
+                                layout.swipe_row_max = layout.swipe_row_max < idx ? idx : layout.swipe_row_max;
 
-                            layout.swipe_row_min = layout.swipe_row_min > idx ? idx : layout.swipe_row_min;
-                            layout.swipe_row_max = layout.swipe_row_max < idx ? idx : layout.swipe_row_max;
+                                list.slice(layout.swipe_row_min, layout.swipe_row_max + 1).each(function(){
+                                    console.log($(this).find('.card-wrapper'));
+                                    console.log(!$(this).find('.card-wrapper').hasClass("selected"))
 
-                            list.slice(layout.swipe_row_min, layout.swipe_row_max + 1).each(function(){
-                                console.log($(this).find('.card-wrapper'));
-                                console.log(!$(this).find('.card-wrapper').hasClass("selected"))
-
-                                if (!$(this).find('.card-wrapper').hasClass("selected")) {
-                                    var value = parseInt($(this).find('.card-wrapper').attr('data-value'), 10);
-                                    if (typeof value !== typeof undefined && value !== false && !isNaN(value) ) {
-                                        layout.values_to_select.push(value);
-                                        $element.find("[data-dimension='0'][data-value='"+ value+"']").toggleClass("selected");
+                                    if (!$(this).find('.card-wrapper').hasClass("selected")) {
+                                        var value = parseInt($(this).find('.card-wrapper').attr('data-value'), 10);
+                                        if (typeof value !== typeof undefined && value !== false && !isNaN(value) ) {
+                                            layout.values_to_select.push(value);
+                                            $element.find("[data-dimension='0'][data-value='"+ value+"']").toggleClass("selected");
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            }
                         }
                     }
                 });
                 
                 $element.find('.selectable').on("qv-swipe", function(event) {
-                    
-                    layout.swipe_row_min = -1;
-                    layout.swipe_row_max = -1;
-                    if (layout.values_to_select !== []) {
-                        self.selectValues(0, layout.values_to_select, false);
-                        layout.values_to_select = [];
+                    if (!$element.parents('.qv-snapshot-enabled').length) {
+                        layout.swipe_row_min = -1;
+                        layout.swipe_row_max = -1;
+                        if (layout.values_to_select !== []) {
+                            self.selectValues(0, layout.values_to_select, false);
+                            layout.values_to_select = [];
+                        }
                     }
                 });
 
