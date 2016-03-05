@@ -3,7 +3,7 @@
 # -------------------------------------------------------------------
 general:
   # Path to the extension directory in Qlik Sense Desktop
-  LocalExtensionPath:   "\\\\adnet.adlibris.se\\shares\\Users\\karl.fredberg\\My Documents\\Qlik\\Sense\\Extensions"
+  LocalExtensionPath:   "C:\\Users\\karlf\\Documents\\Qlik\\Sense\\Extensions"
 
   # Name of the Extension as defined in the generator
   ExtensionName:        "Cards"

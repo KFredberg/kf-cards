@@ -68,8 +68,7 @@ function ($, /*_,*/ props, initProps, extensionUtils, cssContent) {
 
             html += "</div>";
             $element.html(html);
-
-            if(!this.$scope.$parent.$parent.editmode) {
+            if ( this.selectionsEnabled ) {
                 if(morebutton) {
                     var requestPage = [{
                         qTop : lastrow + 1,

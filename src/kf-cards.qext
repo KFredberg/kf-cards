@@ -1,9 +1,10 @@
 {
 	"name" : "Cards",
 	"description" : "Table extension with cards as cells",
-	"icon" : "table",
+	"icon": "list",
 	"type" : "visualization",
-	"version": "@@version",
-	"preview" : "cards.png",
-	"author": "Karl Fredberg"
+	"version": "0.0.2",
+	"preview" : "kf-cards.png",
+	"author": "Karl Fredberg",
+	"dependencies" : { "qlik-sense" : ">=2.2.x" }
 }
